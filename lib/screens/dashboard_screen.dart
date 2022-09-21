@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:Milestone/widgets/progress_widget_collection.dart';
+
 import '../theme.dart';
 import '../widgets/bottom_nav_bar.dart';
 
@@ -10,6 +13,74 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+
+  late String totalTime = "0 Hours 0 Minutes";
+  late String totalDayTime = "0h 0m / 40h";
+  late String totalNightTime = "0h 0m / 10h";
+  late num totalDayLogs = 0;
+  late num totalNightLogs = 0;
+  late double dayProgress = 0;
+  late double nightProgress = 0;
+
+  GlobalKey keyButton1 = GlobalKey();
+  GlobalKey keyButton2 = GlobalKey();
+  GlobalKey keyButton3 = GlobalKey();
+  GlobalKey keyButton4 = GlobalKey();
+
+  void _prepareHome() async {
+    var logData = await Hive.openBox('LoggedData');
+    var generalData = await Hive.openBox('GeneralData');
+    var logList = logData.values;
+    num totalCounter = 0;
+    num totalDayCounter = 0;
+    num totalNightCounter = 0;
+    totalDayLogs = 0;
+    totalNightLogs = 0;
+    for (var log in logList) {
+      totalCounter += log.totalTime;
+      if (log.isDay) {
+        totalDayCounter += log.totalTime;
+        totalDayLogs++;
+      } else {
+        totalNightCounter += log.totalTime;
+        totalNightLogs++;
+      }
+    }
+
+    setState(() {
+      totalTime = "${(totalCounter / 60).floor()} Hours ${totalCounter % 60} Minutes";
+      if ((totalCounter / 60).floor() == 1) {
+        totalTime = "1 Hour ";
+      } else {
+        totalTime = "${(totalCounter / 60).floor()} Hours ";
+      }
+      if (totalCounter % 60 == 1) {
+        totalTime += "1 Minute";
+      } else {
+        totalTime += "${totalCounter % 60} Minutes";
+      }
+
+      totalDayTime = "${(totalDayCounter / 60).floor()}h ${totalDayCounter % 60}m / ${generalData.get('DayHourGoal', defaultValue: -1)}h";
+      totalNightTime = "${(totalNightCounter / 60).floor()}h ${totalNightCounter % 60}m / ${generalData.get('NightHourGoal')}h";
+
+      if (generalData.get('DayHourGoal', defaultValue: -1) != 0 && generalData.get('DayHourGoal', defaultValue: -1) != null) {
+        dayProgress = totalDayCounter / (generalData.get('DayHourGoal', defaultValue: -1) * 60);
+      } else {
+        dayProgress = -1;
+      }
+      if(generalData.get('NightHourGoal', defaultValue: -1) != 0 && generalData.get('NightHourGoal', defaultValue: -1) != null) {
+        nightProgress = totalNightCounter / (generalData.get('NightHourGoal', defaultValue: -1) * 60);
+      } else {
+        nightProgress = -1;
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _prepareHome();
+  }
 
   @override
   Widget build(BuildContext context) {

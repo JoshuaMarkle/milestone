@@ -18,14 +18,33 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
+  Hive.registerAdapter(GeneralDataAdapter());
   Hive.registerAdapter(LogDataAdapter());
+  Hive.registerAdapter(TemplateDataAdapter());
   await Hive.openBox('LoggedData');
+  await Hive.openBox('TemplateData');
+  var generalData = await Hive.openBox('GeneralData');
+
   SchedulerBinding.instance.addPostFrameCallback((_) {
     if (SchedulerBinding.instance.window.platformBrightness ==
         Brightness.dark) {
+      generalData.put('isDarkMode', true);
       setTheme(true);
     } else {
+      generalData.put('isDarkMode', false);
       setTheme(false);
     }
   });
+
+  if (generalData.isEmpty || generalData.get('FirstOpen', defaultValue: true)) {
+    generalData.put('FirstOpen', false);
+    generalData.put('DayHourGoal', -1);
+    generalData.put('NightHourGoal', -1);
+
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+        .then((value) => runApp(const WelcomeInitializer()));
+  } else {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+        .then((value) => runApp(const MasterNavigator()));
+  }
 }

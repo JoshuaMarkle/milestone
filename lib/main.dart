@@ -1,3 +1,4 @@
+import 'package:Milestone/screens/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +6,8 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:Milestone/navigation_master.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
+
+import 'package:Milestone/screens/welcome_screen.dart';
 import 'package:Milestone/data.dart';
 import 'package:Milestone/theme.dart';
 

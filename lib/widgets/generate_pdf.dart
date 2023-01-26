@@ -43,6 +43,34 @@ void generatePdfFromHiveData(BuildContext context) async {
           ])
       .toList();
 
+  pdf.addPage(pw.MultiPage(
+      pageFormat: PdfPageFormat.a4,
+      margin: const pw.EdgeInsets.all(35),
+      build: (pw.Context context) => [
+            pw.Align(
+              alignment: pw.Alignment.center,
+              child: pw.Text('Driving Log Sheet', style: titleStyle),
+            ),
+            pw.SizedBox(height: 10),
+            pw.Text('Name: ', style: textStyle),
+            pw.SizedBox(height: 10),
+            pw.Table.fromTextArray(
+                headers: headers,
+                data: rows,
+                headerStyle: headerStyle,
+                cellStyle: textStyle,
+                cellAlignment: pw.Alignment.centerLeft,
+                headerAlignment: pw.Alignment.centerLeft),
+            pw.SizedBox(height: 10),
+            pw.Table.fromTextArray(
+                headers: ["Total Time", "Total Day Time", "Total Night Time"],
+                data: totals,
+                headerStyle: headerStyle,
+                cellStyle: textStyle,
+                cellAlignment: pw.Alignment.centerLeft,
+                headerAlignment: pw.Alignment.centerLeft),
+          ]));
+
   var pdfData = pdf.save();
   await Printing.layoutPdf(
     name: "Driving Log Sheet",

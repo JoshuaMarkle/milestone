@@ -451,7 +451,7 @@ class _LogEditorState extends State<LogEditor> {
                                         child: Text('Start Time', style: headerTextStyle),
                                       ),
                                       Flexible(
-                                        child: Text('${startTime.format(context)}', style: normalTextStyle),
+                                        child: Text(startTime.format(context), style: normalTextStyle),
                                       ),
                                     ],
                                   ),
@@ -469,7 +469,7 @@ class _LogEditorState extends State<LogEditor> {
                                         child: Text('End Time', style: headerTextStyle),
                                       ),
                                       Flexible(
-                                        child: Text('${endTime.format(context)}', style: normalTextStyle),
+                                        child: Text(endTime.format(context), style: normalTextStyle),
                                       ),
                                     ],
                                   ),

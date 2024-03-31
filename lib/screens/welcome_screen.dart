@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:Milestone/screens/set_goals_screen.dart';
 
@@ -400,7 +397,7 @@ class WelcomeScreen extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.pushReplacement(
                                     context,
-                                    MaterialPageRoute(builder: (context) => SetGoalsScreen()),
+                                    MaterialPageRoute(builder: (context) => const SetGoalsScreen()),
                                   );
                                 },
                                 child: Container(

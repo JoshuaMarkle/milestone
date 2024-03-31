@@ -3,7 +3,6 @@ import 'package:hive/hive.dart';
 import 'package:Milestone/widgets/progress_widget_collection.dart';
 
 import '../theme.dart';
-import '../widgets/bottom_nav_bar.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);

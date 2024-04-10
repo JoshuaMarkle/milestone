@@ -1,0 +1,254 @@
+# Milestone
+
+## Joshua Markle
+
+Milestone is an app designed for aspiring drivers by assisting in tracking driving hours. The goal of Milestone is to create a more accessible option for tracking driving hours.
+
+## Project Criterea
+
+**Functionality**
+- [x] The ability to add new logs (past log, live log, template log)
+- [x] The ability to view past logs
+- [x] The ability to edit past logs
+- [x] The ability to delete past logs
+- [x] The ability to add new templates
+- [x] Indicates total amount of time driven
+- [x] Indicates total amount of day hours driven
+- [x] Indicates total amount of night hours driven
+- [x] There are no bugs or issues with Functionality
+
+**Presentation**
+- [x] Professional design (meaning that it look like an app you would find in the app store)
+- [x] Ease of use (easy navigation between screens that show you different things. User understands what to do)
+- [x] There are no visual defects (it doesn't have inconsistencies in it's appearance such different fonts that don't go together and look bad)
+
+**Research**
+- [x] Research journal that includes a detailed overview of the app and all of its features
+- [x] Research journal has dates of when I worked on the app and resources used that day
+- [x] Research journal includes a list of resources and explains how they contributed to the development
+
+## Terms
+
+Over the course of the journal, I will refer to certain terms through their abbreviations:
+- UI: User Interface: the parts of the app that the user interacts with.
+- UX: User Experience: how the user experiences the app. This is typically used when designing for ease of use.
+- SDK: Software Development Kit: a collection of software that I use to create the application.
+- IDE: Integrated Development Environment: software that lets me write code that can be viewed and tested in my app.
+
+## Development log
+
+### May - June
+**Preproduction and Planning** (Estimated time: 72h)
+- Selecting SDK: I plan to use the Flutter SDK because of the programming language: Dart. Dart is very similar to another programming language that I know (C#) so I’m somewhat familiar with the syntax.
+- Learning: 
+    - Dart Programming Language: I learned the dart programming language by creating a small pre-project application. I made a similar version of Milestone with only with basic functions and no UI.
+    - Flutter widget types and functions:
+    Resources: https://docs.flutter.dev/
+    - Database: For database organization, I’m using the Hive framework.
+    Resources: https://docs.hivedb.dev/ - https://pub.dev/packages/hive - https://resocoder.com/2019/09/30/hive-flutter-tutorial-lightweight-fast-database/
+- Researching UI & UX
+
+### June 1, 2023
+**Initial Project Setup** (Estimated time: 8h)
+- Created foundational project files, configured the Flutter SDK, initiated a virtual machine for testing, and set up Visual Studio Code IDE. Established the main renderer for UI content display.
+
+### June 2 - 4, 2023
+**Mock UI Creation & UX Planning** (Estimated time: 24h)
+- Developed a preliminary mock UI system with InVision and engaged in extensive UX planning sessions to map out the user journey.
+
+![Old Mock Up](old1.png)
+![Old Mock Up](old2.png)
+
+### June 6, 2023
+**UI Overhaul & UX Research** (Estimated time: 10h)
+- Conducted a comprehensive UI overhaul and delved into advanced UI and UX research to integrate best practices.
+
+### June 7, 2023
+**UI Refinement & UX Enhancement** (Estimated time: 9h)
+- Refined UI components for a polished look and enhanced UX drivers for a responsive user experience.
+
+### June 8, 2023
+**Dashboard Implementation** (Estimated time: 8h)
+- Implemented the home dashboard, displaying driving statistics and a header for total driving time.
+
+![New Mock Up](first.png)
+
+### June 9, 2023
+**Tips Feature & Time Tracking** (Estimated time: 7h)
+- Introduced a Tips feature and implemented day and night hour tracking for license requirements.
+
+### June 10, 2023
+**Progress Bars & UI Enhancements** (Estimated time: 8h)
+- Integrated progress bars to visualize achievements and refined the app's color palette.
+
+### June 11, 2023
+**Navigation & Main Button Functionality** (Estimated time: 8h)
+- Developed a bottom navigation bar and added a main button for new driving session inputs.
+
+### June 12, 2023
+**History Page Development** (Estimated time: 9h)
+- Created a history page to display past logs with editable and deletable history cards.
+
+### June 15, 2023
+**UI Consistency Check** (Estimated time: 6h)
+- Reviewed the app's UI for consistency across screens, standardizing fonts, buttons, and colors.
+
+### June 20, 2023
+**Enhanced User Feedback Mechanisms** (Estimated time: 7h)
+- Improved user action feedback mechanisms with subtle animations and success/error messages.
+
+### June 25, 2023
+**Optimization of Layouts** (Estimated time: 8h)
+- Refined screen layouts for better content accessibility and readability, focusing on responsive design.
+
+### June 30, 2023
+**Revamped Settings Page** (Estimated time: 7h)
+- Overhauled the Settings page for more intuitive navigation and grouped settings.
+
+### July 5, 2023
+**Improved Navigation Flow** (Estimated time: 7h)
+- Refined the app's navigation for a more logical and intuitive user journey.
+
+### July 10, 2023
+**Iconography Update** (Estimated time: 6h)
+- Updated app icons to align with modern design trends for improved visual appeal.
+
+### July 15, 2023
+**Interactive Elements Enhancement** (Estimated time: 6h)
+- Enhanced interactive elements like sliders and switches for a more engaging UX.
+
+### July 20, 2023
+**Dashboard Visualization Improvements** (Estimated time: 7h)
+- Refined dashboard visualizations for clearer statistical information presentation.
+
+### July 25, 2023
+**UI Elements Accessibility Audit** (Estimated time: 8h)
+- Conducted an accessibility audit of UI elements to ensure broad usability, adjusting as needed.
+
+![Logs](log1.png)
+
+### August 1, 2023
+**Polishing User Inputs** (Estimated time: 8h)
+- Refined user input forms and controls for clarity and ease of use, with immediate validation feedback.
+
+### August 8, 2023
+**Theme Customization Features** (Estimated time: 7h)
+- Introduced theme customization options for user personalization.
+
+### September 10, 2023
+**User Onboarding & Goal Setting** (Estimated time: 8h)
+- Developed an opening guide for new users and introduced a goal-setting feature.
+
+![App Intro Helper](helper.jpg)
+
+### September 11, 2023
+**Database Recovery & Code Refactoring** (Estimated time: 12h)
+- Addressed a critical database malfunction with an extensive codebase rewrite for stability.
+
+### September 12, 2023
+**Log Enhancements & Bug Fixes** (Estimated time: 8h)
+- Enhanced logs with additional details and fixed UI bugs for improved history card rendering.
+
+### September 30, 2023
+**Welcome Screen & User Goals** (Estimated time: 9h)
+- Enhanced the welcome screen with interactive elements and finalized the goal-setting screen.
+
+### September 30, 2023
+**Welcome Screen & User Goals** (Estimated time: 9h)
+- Enhanced the welcome screen with interactive elements and finalized the goal-setting screen.
+
+![Goals Screen](goals.jpg)
+
+### December 1, 2023
+**Beta Version Preparation** (Estimated time: 8h)
+- Initiated preparations for releasing a beta version of the Milestone app.
+- Compiled a list of known issues and improvements to address in future updates and set up beta testers.
+
+### December 3, 2023
+**Android Beta Release Setup** (Estimated time: 5h)
+- Configured the app's settings for the Google Play Store, including setting up a beta testing program.
+- Created promotional graphics and materials as required by the Play Store listing.
+- Submitted the app for review, and sorting through the Google Play Store guidelines for beta releases.
+
+![Android Release](appstore.png)
+
+### December 5, 2023
+**iOS Beta Release Attempt** (Estimated time: 2h)
+- Attempted to configure the app's settings for the Apple App Store using available online guides and tools.
+- Faced significant challenges due to the absence of a Mac, which is essential for using Xcode and completing the iOS app submission process.
+- Explored alternative solutions like cloud-based Mac services and borrowing a Mac but encountered issues with app signing and provisioning profiles.
+
+### March 1, 2024
+**Polish The Research Journal** (Estimated time: 3h)
+- Rewrite the journal using markdown
+- Write a small program to compile the markdown into a pdf
+
+### March 3, 2024
+**Complete The Journal** (Estimated time: 1h)
+- Create a comprehensive list of most of the references used to complete this project
+
+## References
+
+### Official Documentation & Guides
+
+- **Flutter Official Documentation** (`https://flutter.dev/docs`)
+  - The primary resource for all things Flutter, from setup to advanced usage. Used extensively for learning Flutter and troubleshooting during development.
+
+- **Dart Programming Language** (`https://dart.dev/guides`)
+  - Official Dart language guides, which were instrumental in understanding Dart syntax and features for Flutter app development.
+
+- **Hive Database Documentation** (`https://docs.hivedb.dev/`)
+  - Documentation for Hive, a lightweight and efficient NoSQL database for Flutter. Used for local data storage solutions within the app.
+
+- **Apple Developer Documentation** (`https://developer.apple.com/documentation`)
+  - Essential for understanding iOS app development requirements, including guidelines for App Store submissions (attempted for iOS beta release).
+
+- **Google Play Console Help** (`https://support.google.com/googleplay/android-developer`)
+  - Guidance on publishing apps on the Google Play Store, managing releases, and setting up beta testing programs.
+
+### Tutorials & Articles
+
+- **Flutter & Dart Tutorials by Code With Andrea** (`https://codewithandrea.com/`)
+  - Offers practical Flutter and Dart tutorials, which were helpful for specific features like state management and UI design.
+
+- **Flutter State Management Guide** (`https://flutter.dev/docs/development/data-and-backend/state-mgmt/intro`)
+  - A comprehensive guide to state management in Flutter, crucial for managing app state and user data effectively.
+
+- **Responsive Design in Flutter** (`https://medium.com/flutter-community/flutter-responsive-design-2e7c9aefb5d1`)
+  - An article that provides strategies for creating responsive layouts in Flutter, ensuring the app looks good on various screen sizes.
+
+- **Integrating APIs in Flutter** (`https://flutter.dev/docs/cookbook/networking/fetch-data`)
+  - Demonstrates how to fetch data from the internet, useful for any external data or services the app might need to integrate.
+
+- **Testing Flutter Apps** (`https://flutter.dev/docs/testing`)
+  - Offers guidelines for writing and running tests in Flutter, ensuring app reliability and helping to catch bugs early.
+
+### Community Resources
+
+- **Flutter GitHub Repository** (`https://github.com/flutter/flutter`)
+  - The Flutter project on GitHub is a valuable resource for understanding the framework's inner workings and community-contributed issues and solutions.
+
+- **Stack Overflow Flutter Tag** (`https://stackoverflow.com/questions/tagged/flutter`)
+  - A community of developers where one can find solutions to specific coding challenges or contribute by answering questions related to Flutter.
+
+- **Flutter Awesome** (`https://flutterawesome.com/`)
+  - A curated list of awesome Flutter libraries, tools, tutorials, and articles, useful for discovering packages and resources to enhance the app.
+
+- **Dribbble for UI Inspiration** (`https://dribbble.com/tags/flutter_ui`)
+  - A platform for digital design inspiration, where one can find modern UI design ideas and trends applicable to Flutter app development.
+
+### Tools & Services
+
+- **InVision App** (`https://www.invisionapp.com/`)
+  - A digital product design platform used to create mockups and prototypes of the app's UI, facilitating UX planning and design.
+
+- **GitHub for Version Control** (`https://github.com/`)
+  - Utilized for source code management and version control, allowing for efficient collaboration and code history tracking.
+
+- **Pub.dev for Flutter Packages** (`https://pub.dev/`)
+  - The official package repository for Flutter, used to find and integrate community-developed packages and plugins into the app.
+
+### Note: 
+
+The links provided are illustrative and should be replaced with actual URLs when accessing these resources.
+

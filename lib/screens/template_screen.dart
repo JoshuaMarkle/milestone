@@ -94,7 +94,7 @@ class TemplateHomeScreen extends StatelessWidget {
                         PageRouteBuilder(
                           opaque: false,
                           barrierDismissible: true,
-                          pageBuilder: (_, __, ___) => const LogEditor(logEditType: "Template"),
+                          pageBuilder: (_, __, ___) => const LogEditor(logEditType: "Template", boxIndex: 0,),
                           transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             const double begin = 0;
                             const double end = 1;

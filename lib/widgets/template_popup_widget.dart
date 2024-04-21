@@ -437,6 +437,7 @@ class TemplateCardPopupState extends State<TemplateCardPopup> {
                                         weather: widget.weather,
                                         totalTime: widget.totalTime,
                                         notes: widget.notes,
+                                        boxIndex: widget.boxIndex,
                                       )),
                                     );
                                     reloadInformation();

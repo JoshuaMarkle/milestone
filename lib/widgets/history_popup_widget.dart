@@ -395,6 +395,7 @@ class HistoryCardPopupState extends State<HistoryCardPopup> {
                                           date: DateFormat('MM/dd/yyyy').parse(widget.dateTime),
                                           weather: widget.weather,
                                           totalTime: widget.totalTime,
+                                          boxIndex: widget.boxIndex,
                                         ),
                                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                           const double begin = 0;

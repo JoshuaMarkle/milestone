@@ -137,7 +137,7 @@ class _LogTypeScreenState extends State<LogTypeScreen> {
                               PageRouteBuilder(
                                 opaque: false,
                                 barrierDismissible: true,
-                                pageBuilder: (_, __, ___) => const LogEditor(logEditType: "Past"),
+                                pageBuilder: (_, __, ___) => const LogEditor(logEditType: "Past", boxIndex: 0,),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                   const double begin = 0;
                                   const double end = 1;

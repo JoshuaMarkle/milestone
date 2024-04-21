@@ -12,6 +12,7 @@ List<String> dropdownWeather = <String>["Clear", "Raining", "Snowing", "Foggy"];
 class LogEditor extends StatefulWidget {
 
   final String logEditType;
+  final int boxIndex;
   final String? title;
   final DateTime? date;
   final String? weather;
@@ -20,6 +21,7 @@ class LogEditor extends StatefulWidget {
 
   const LogEditor({Key? key,
     required this.logEditType,
+    required this.boxIndex,
     this.title,
     this.date,
     this.weather,
@@ -111,7 +113,7 @@ class _LogEditorState extends State<LogEditor> {
       ..isDay = isDay
       ..weather = weather;
 
-    final logBox = Hive.box("LoggingData");
+    final logBox = Hive.box("LoggedData");
     logBox.putAt(index, newData);
   }
 
@@ -519,7 +521,7 @@ class _LogEditorState extends State<LogEditor> {
                           height: height * 0.06,
                           child: ElevatedButton.icon(
                             onPressed: () {
-                              customOutput(0, templateTitle(), _date, calculateTotalTime(), notesTaken() , isDayFinder(), selectedWeather);
+                              customOutput(widget.boxIndex, templateTitle(), _date, calculateTotalTime(), notesTaken() , isDayFinder(), selectedWeather);
                               Navigator.pop(context, () {
                                 setState(() {});
                               });

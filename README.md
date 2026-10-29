@@ -1,6 +1,9 @@
-# testing
+# Milestone
 
-A new Flutter project.
+A driving log for learner's permit holders. Track your practice hours and watch your day & night goals fill up, one drive at a time.
+
+![Milestone dashboard](promo/images/desktop-01-dashboard.png)
+![Milestone live drive](promo/images/desktop-02-live-drive.png)
 
 ## Getting Started
 

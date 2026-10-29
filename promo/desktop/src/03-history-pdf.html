@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../src/common.css">
+<link rel="stylesheet" href="desktop.css">
+<style>
+  body {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(255,255,255,0.25) 0, rgba(255,255,255,0) 800px),
+      radial-gradient(circle at 100% 100%, rgba(0,40,110,0.22) 0, rgba(0,40,110,0) 900px),
+      var(--accent);
+    color: var(--snowman);
+  }
+
+  /* printed log sheet (mirrors lib/widgets/generate_pdf.dart) */
+  .paper {
+    position: absolute; left: 1380px; top: 150px;
+    width: 470px; height: 665px;
+    background: #fff; color: #000;
+    padding: 30px 24px;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    transform: rotate(6deg);
+    box-shadow: 0 30px 70px rgba(0,30,80,0.35);
+  }
+  .paper .title { text-align: center; font-size: 22px; font-weight: 700; }
+  .paper .name { font-size: 13px; margin: 12px 0 10px; }
+  .paper .name u { font-style: italic; text-decoration: none; border-bottom: 1px solid #000; padding: 0 60px 0 6px; font-size: 15px; color: #233; }
+  .paper table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+  .paper th, .paper td { border: 1px solid #000; padding: 4px 5px; text-align: left; }
+  .paper th { font-weight: 700; }
+  .paper table + table { margin-top: 10px; }
+
+  .phone { left: 960px; top: 120px; transform: rotate(-3deg); }
+
+  .hist { position: absolute; inset: 34px 0 0 0; }
+  .hist .bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 23px 20px 12px; color: var(--gray);
+  }
+  .hist .list { padding: 6px 23px; }
+  .hcard {
+    height: 76px; margin-bottom: 23px;
+    padding: 20px 23px 11px;
+  }
+  .hcard .row { display: flex; justify-content: space-between; }
+  .hcard .divider { width: 82px; margin-top: 5px; }
+
+  .exportpill {
+    position: absolute; right: 70px; top: 70px;
+    display: flex; align-items: center; gap: 14px;
+    background: var(--teflon); color: var(--snowman);
+    padding: 14px 26px 14px 14px; border-radius: 50px;
+    font-size: 26px; font-weight: 500;
+    box-shadow: 0 16px 40px rgba(0,20,60,0.3);
+    z-index: 3;
+  }
+  .exportpill .dot { width: 50px; height: 50px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+
+  /* expanded history popup, floated */
+  .popup {
+    left: 1180px; top: 650px; width: 640px;
+    padding: 34px 40px 16px;
+    transform: rotate(-2deg);
+  }
+  .popup .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .popup .big { font-size: 38px; font-weight: 600; color: var(--teflon); }
+  .popup .divider { height: 6px; margin: 16px 0 12px; width: 82%; }
+  .popup .meta { font-size: 27px; font-weight: 500; color: var(--clooney); display: flex; align-items: center; gap: 10px; }
+  .popup .meta svg { color: var(--accent); }
+  .popup .notes { font-size: 27px; font-weight: 500; color: var(--gandalf); line-height: 1.35; margin-top: 16px; }
+  .popup .actions { display: flex; justify-content: space-around; margin-top: 14px; color: var(--clooney); font-size: 27px; font-weight: 500; }
+  .popup .actions span { display: flex; align-items: center; gap: 10px; padding: 10px; }
+</style>
+</head>
+<body>
+  <div class="copy left">
+    <div class="brand"><span class="logo"></span><span class="name">Milestone</span></div>
+    <div class="headline">Your logbook,<br><b>print-ready.</b></div>
+    <div class="subline">Every drive keeps its date, time, weather and notes. Export the whole log as a PDF in one tap, ready to hand in with your license application.</div>
+  </div>
+
+  <div class="paper">
+    <div class="title">Driving Log Sheet</div>
+    <div class="name">Name: <u>Jordan Reyes</u></div>
+    <table>
+      <tr><th>Date</th><th>Minutes Driven</th><th>Day/Night</th><th>Weather</th></tr>
+      <tr><td>10/02/2026</td><td>65</td><td>Day</td><td>Clear</td></tr>
+      <tr><td>10/04/2026</td><td>45</td><td>Day</td><td>Clear</td></tr>
+      <tr><td>10/07/2026</td><td>130</td><td>Day</td><td>Foggy</td></tr>
+      <tr><td>10/11/2026</td><td>90</td><td>Night</td><td>Clear</td></tr>
+      <tr><td>10/14/2026</td><td>55</td><td>Day</td><td>Raining</td></tr>
+      <tr><td>10/18/2026</td><td>80</td><td>Day</td><td>Clear</td></tr>
+      <tr><td>10/21/2026</td><td>40</td><td>Day</td><td>Clear</td></tr>
+      <tr><td>10/25/2026</td><td>120</td><td>Day</td><td>Clear</td></tr>
+      <tr><td>10/27/2026</td><td>65</td><td>Night</td><td>Raining</td></tr>
+      <tr><td>10/28/2026</td><td>50</td><td>Day</td><td>Snowing</td></tr>
+    </table>
+    <table>
+      <tr><th>Total Time</th><th>Total Day Time</th><th>Total Night Time</th></tr>
+      <tr><td>740</td><td>585</td><td>155</td></tr>
+    </table>
+  </div>
+
+  <div class="exportpill"><span class="dot"><i data-ic="pdf" data-s="26"></i></span>Export to PDF</div>
+
+  <div class="phone">
+    <div class="camera"></div>
+    <div class="screen">
+      <div data-status="9:41"></div>
+      <div class="hist">
+        <div class="bar">
+          <i data-ic="arrow_back" data-s="26"></i>
+          <span class="t-header">History</span>
+          <span style="color:var(--accent)"><i data-ic="pdf" data-s="26"></i></span>
+        </div>
+        <div class="list">
+          <div class="card hcard"><div class="row t-header"><span>10/02/2026</span><span>1h 5m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/04/2026</span><span>45m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/07/2026</span><span>2h 10m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/11/2026</span><span>1h 30m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/14/2026</span><span>55m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/18/2026</span><span>1h 20m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/21/2026</span><span>40m</span></div><div class="divider"></div></div>
+          <div class="card hcard"><div class="row t-header"><span>10/25/2026</span><span>2h</span></div><div class="divider"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="float popup">
+    <div class="row"><span class="big">10/27/2026</span><span class="big">1h 5m</span></div>
+    <div class="divider"></div>
+    <div class="row">
+      <span class="meta"><i data-ic="night" data-s="30"></i>Night Drive</span>
+      <span class="meta">Raining Weather</span>
+    </div>
+    <div class="notes">Practiced merging onto the highway in the rain. Remember to signal earlier and check the blind spot.</div>
+    <div class="actions">
+      <span><i data-ic="delete" data-s="30"></i>Delete</span>
+      <span><i data-ic="edit" data-s="30"></i>Edit</span>
+    </div>
+  </div>
+
+  <script src="../../src/common.js"></script>
+</body>
+</html>

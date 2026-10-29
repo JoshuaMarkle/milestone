@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../src/common.css">
+<link rel="stylesheet" href="desktop.css">
+<style>
+  body {
+    background:
+      radial-gradient(circle at 30% 45%, rgba(85,170,255,0.26) 0, rgba(85,170,255,0) 640px),
+      radial-gradient(circle at 95% 100%, rgba(85,170,255,0.12) 0, rgba(85,170,255,0) 600px),
+      var(--midnight);
+    color: var(--gainsboro);
+  }
+  .copy .brand .name { color: var(--snowman); }
+  .copy .headline { color: var(--snowman); }
+  .copy .headline b { color: var(--accent); }
+  .copy .subline { color: var(--smoke); opacity: 1; }
+  .copy .tags span { background: var(--nero); color: var(--gainsboro); }
+  .copy .tags svg { color: var(--accent); }
+
+  .phone { left: 470px; top: 105px; box-shadow: 0 40px 90px rgba(0,0,0,0.6), inset 0 0 0 2px #333; }
+
+  /* information screen (mirrors information_screen.dart, dark theme) */
+  .info { position: absolute; inset: 34px 0 0 0; }
+  .info .bar { display: flex; justify-content: space-between; align-items: center; padding: 23px 20px 8px; color: var(--gray); }
+  .info .list { padding: 8px 23px; display: flex; flex-direction: column; gap: 18px; }
+  .guide { border: 1px solid var(--gray); border-radius: 20px; padding: 16px; }
+  .guide .t-header { white-space: normal; line-height: 1.2; }
+  .guide .t-normal { white-space: normal; line-height: 1.35; margin-top: 8px; }
+
+  /* goal picker card (mirrors set_goals_screen.dart, dark theme) */
+  .goals {
+    position: absolute; left: 90px; top: 590px; width: 520px;
+    background: var(--nero); border-radius: 30px;
+    padding: 30px 30px 26px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+    transform: rotate(2deg);
+  }
+  .goals .title { font-size: 32px; font-weight: 600; color: var(--gainsboro); text-align: center; margin-bottom: 20px; }
+  .goals .pickers { display: flex; justify-content: space-around; }
+  .picker { text-align: center; }
+  .picker .lab { font-size: 25px; font-weight: 500; color: var(--gainsboro); margin-bottom: 12px; }
+  .picker .wheel { display: flex; align-items: center; gap: 14px; color: var(--storm); font-size: 22px; }
+  .picker .box {
+    width: 110px; height: 110px; border-radius: 20px;
+    border: 2px solid var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; color: var(--accent);
+  }
+  .goals .set {
+    margin-top: 24px; height: 58px; border-radius: 14px;
+    background: var(--accent); color: var(--snowman);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 600;
+  }
+
+  /* dark mode toggle callout */
+  .darkchip {
+    position: absolute; left: 150px; top: 230px;
+    display: flex; align-items: center; gap: 22px;
+    background: var(--nero); color: var(--gainsboro);
+    padding: 20px 28px 20px 20px; border-radius: 30px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    font-size: 27px; font-weight: 500;
+    --lightGray: var(--eclipse);
+    transform: rotate(-2deg);
+  }
+  .darkchip .badge { width: 62px; height: 62px; }
+  .darkchip .switch { transform: scale(1.4); margin-left: 12px; }
+</style>
+</head>
+<body>
+  <div class="darkchip">
+    <div class="badge"><i data-ic="night" data-s="32"></i></div>
+    Dark Mode
+    <span class="switch on"></span>
+  </div>
+
+  <div class="phone dark">
+    <div class="camera"></div>
+    <div class="screen">
+      <div data-status="9:41"></div>
+      <div class="info">
+        <div class="bar">
+          <i data-ic="arrow_back" data-s="26"></i>
+          <span class="t-header">Information</span>
+          <i data-ic="settings" data-s="26"></i>
+        </div>
+        <div class="list">
+          <div class="guide">
+            <div class="t-header">Preparing for the Written Exam</div>
+            <div class="t-normal">Study Materials and Resources<br>Topics Covered on the Exam<br>Tips for Preparing for the Exam</div>
+          </div>
+          <div class="guide">
+            <div class="t-header">Preparing for the Driving Exam</div>
+            <div class="t-normal">Understanding the Test Requirements<br>Basic Vehicle Controls<br>Defensive Driving Techniques<br>Sample Driving Test Scenarios</div>
+          </div>
+          <div class="guide">
+            <div class="t-header">Understanding the Rules of the Road</div>
+            <div class="t-normal">Traffic Laws and Regulations<br>Road Signs and Markings<br>Right-of-Way Rules</div>
+          </div>
+        </div>
+      </div>
+      <div data-navbar></div>
+    </div>
+  </div>
+
+  <div class="goals">
+    <div class="title">Setting Goals</div>
+    <div class="pickers">
+      <div class="picker">
+        <div class="lab">Day Hours</div>
+        <div class="wheel"><span>45</span><div class="box">50</div><span>55</span></div>
+      </div>
+      <div class="picker">
+        <div class="lab">Night Hours</div>
+        <div class="wheel"><span>5</span><div class="box">10</div><span>15</span></div>
+      </div>
+    </div>
+    <div class="set">Set Goals</div>
+  </div>
+
+  <div class="copy right">
+    <div class="brand"><span class="logo"></span><span class="name">Milestone</span></div>
+    <div class="headline">Study up.<br><b>Set your goals.</b></div>
+    <div class="subline">Built-in guides walk you through the written and road exams, and your hour goals match whatever your permit requires.</div>
+    <div class="tags">
+      <span><i data-ic="info" data-s="26"></i>Exam guides</span>
+      <span><i data-ic="flag" data-s="26"></i>Custom goals</span>
+      <span><i data-ic="night" data-s="26"></i>Dark mode</span>
+    </div>
+  </div>
+
+  <script src="../../src/common.js"></script>
+</body>
+</html>

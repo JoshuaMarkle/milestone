@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../src/common.css">
+<link rel="stylesheet" href="desktop.css">
+<style>
+  body {
+    background:
+      radial-gradient(circle at 92% 6%, rgba(255,255,255,0.22) 0, rgba(255,255,255,0) 620px),
+      radial-gradient(circle at 0% 100%, rgba(0,40,110,0.18) 0, rgba(0,40,110,0) 800px),
+      var(--accent);
+    color: var(--snowman);
+  }
+  .rings {
+    position: absolute; inset: 0;
+    background: repeating-radial-gradient(circle at 1356px 540px, rgba(255,255,255,0.07) 0 2px, transparent 2px 120px);
+  }
+
+  .phone { left: 1150px; top: 105px; }
+
+  /* dashboard screen */
+  .dash { position: absolute; inset: 0; display: flex; flex-direction: column; }
+  .dash .head {
+    background: var(--accent);
+    border-radius: 0 0 25px 25px;
+    height: 408px;
+    padding: 0 23px 23px;
+    display: flex; flex-direction: column;
+    color: var(--snowman);
+  }
+  .dash .head .icons { flex: 2; display: flex; justify-content: space-between; align-items: center; }
+  .dash .head .total { flex: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .dash .head .total .l { font-size: 22px; font-weight: 600; }
+  .dash .head .total .v { font-size: 36px; font-weight: 400; margin-top: 2px; }
+  .dash .head .tips {
+    flex: 6; background: var(--white); border-radius: 20px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  }
+  .dash .body { padding: 23px; }
+  .dash .body .t-header.h { margin-bottom: 23px; }
+  .goal { display: flex; height: 63px; gap: 23px; margin-bottom: 23px; }
+  .goal .badge { width: 63px; height: 63px; }
+  .goal .info { flex: 1; display: flex; flex-direction: column; justify-content: space-evenly; }
+  .goal .row { display: flex; justify-content: space-between; }
+
+  .ring-card { left: 895px; top: 250px; width: 260px; padding: 28px 20px; text-align: center; }
+  .ring-card .ring { position: relative; width: 170px; height: 170px; margin: 0 auto 12px; }
+  .ring-card .ring svg { transform: rotate(-90deg); }
+  .ring-card .ring .pct {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .ring-card .ring .pct b { font-size: 54px; font-weight: 500; color: var(--teflon); }
+  .ring-card .ring .pct span { font-size: 22px; font-weight: 500; color: var(--clooney); }
+  .ring-card .cap { font-size: 26px; font-weight: 600; }
+  .ring-card .cap2 { font-size: 22px; font-weight: 500; color: var(--clooney); margin-top: 4px; }
+
+  .toast {
+    left: 1400px; top: 800px;
+    display: flex; align-items: center; gap: 22px;
+    padding: 24px 34px 24px 24px;
+  }
+  .toast .badge { width: 74px; height: 74px; }
+  .toast .a { font-size: 30px; font-weight: 600; }
+  .toast .b { font-size: 24px; font-weight: 500; color: var(--clooney); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="rings"></div>
+
+  <div class="copy left">
+    <div class="brand"><span class="logo"></span><span class="name">Milestone</span></div>
+    <div class="headline">Every hour behind<br>the wheel, <b>counted.</b></div>
+    <div class="subline">A driving log for learner’s permit holders. Track your practice hours and watch your day &amp; night goals fill up, one drive at a time.</div>
+    <div class="tags">
+      <span><i data-ic="sun" data-s="26"></i>Day &amp; night goals</span>
+      <span><i data-ic="play" data-s="26"></i>Live drive timer</span>
+      <span><i data-ic="pdf" data-s="26"></i>PDF export</span>
+    </div>
+  </div>
+
+  <div class="phone">
+    <div class="camera"></div>
+    <div class="screen">
+      <div class="dash">
+        <div style="background:var(--accent)"><div data-status="9:41" class="on-accent"></div></div>
+        <div class="head">
+          <div class="icons"><i data-ic="menu" data-s="26"></i><i data-ic="settings" data-s="26"></i></div>
+          <div class="total">
+            <div class="l">Total Drive Time</div>
+            <div class="v">32 Hours 55 Minutes</div>
+          </div>
+          <div class="tips">
+            <div class="t-header">Tips</div>
+            <div class="t-normal">Check your mirrors every 5–8 seconds.</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="t-header h">Progress</div>
+          <div class="goal">
+            <div class="badge"><i data-ic="sun" data-s="32"></i></div>
+            <div class="info">
+              <div class="t-header">Day Hours</div>
+              <div class="row t-normal"><span>18 Logged Drives</span><span>26h 40m / 40h</span></div>
+              <div class="progress"><i style="width:66.7%"></i></div>
+            </div>
+          </div>
+          <div class="goal">
+            <div class="badge"><i data-ic="night" data-s="32"></i></div>
+            <div class="info">
+              <div class="t-header">Night Hours</div>
+              <div class="row t-normal"><span>5 Logged Drives</span><span>6h 15m / 10h</span></div>
+              <div class="progress"><i style="width:62.5%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-navbar></div>
+    </div>
+  </div>
+
+  <div class="float toast">
+    <div class="badge"><i data-ic="night" data-s="38"></i></div>
+    <div>
+      <div class="a">+1h 05m logged</div>
+      <div class="b">Night Drive · Clear Weather</div>
+    </div>
+  </div>
+
+  <div class="float ring-card">
+    <div class="ring">
+      <svg width="170" height="170" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="84" fill="none" stroke="var(--karl)" stroke-width="18"/>
+        <circle cx="100" cy="100" r="84" fill="none" stroke="var(--accent)" stroke-width="18"
+                stroke-linecap="round" stroke-dasharray="527.8" stroke-dashoffset="175.9"/>
+      </svg>
+      <div class="pct"><b>67%</b><span>of goal</span></div>
+    </div>
+    <div class="cap">Day Hours</div>
+    <div class="cap2">13h 20m to go</div>
+  </div>
+
+  <script src="../../src/common.js"></script>
+</body>
+</html>

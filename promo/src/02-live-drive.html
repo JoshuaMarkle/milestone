@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  :root { --accent: var(--red); }
+  body {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(255,255,255,0.20) 0, rgba(255,255,255,0) 600px),
+      var(--accent);
+    color: var(--snowman);
+    position: relative;
+  }
+  /* the road */
+  svg.road { position: absolute; inset: 0; }
+
+  .phone { left: 560px; top: 150px; transform: rotate(5deg) scale(1.04); transform-origin: 50% 0; }
+
+  .live { position: absolute; inset: 34px 0 0 0; padding: 23px; display: flex; flex-direction: column; }
+  .live .bar { display: flex; justify-content: space-between; align-items: center; color: var(--black); height: 48px; }
+  .live .clock { flex: 3; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .live .clock .time { font-size: 72px; font-weight: 300; color: var(--black); letter-spacing: -1px; }
+  .live .controls { flex: 2; display: flex; flex-direction: column; }
+  .live .buttons { display: flex; justify-content: center; align-items: flex-start; gap: 23px; height: 70px; }
+  .live .buttons .badge.big { width: 70px; height: 70px; }
+  .live .buttons .badge.outline { width: 58px; height: 58px; margin-top: 6px; }
+  .live .complete {
+    margin-top: auto; height: 46px; border-radius: 4px;
+    background: var(--accent); color: #fff;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 15px; font-weight: 500;
+    box-shadow: 0 3px 4px rgba(0,0,0,0.18);
+  }
+  /* pulsing ring behind the timer */
+  .live .pulse {
+    position: absolute; left: 50%; top: 36%;
+    width: 300px; height: 300px; margin: -150px 0 0 -150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 10%, transparent) 0 60%, transparent 61%);
+    box-shadow: 0 0 0 26px color-mix(in srgb, var(--accent) 6%, transparent), 0 0 0 56px color-mix(in srgb, var(--accent) 3%, transparent);
+  }
+
+  /* log type bottom sheet, floated */
+  .sheet {
+    position: absolute; left: 50px; top: 440px; width: 520px;
+    padding: 28px 30px 34px;
+    background: var(--snowman); border-radius: 34px;
+    box-shadow: 0 30px 80px rgba(90,0,10,0.35);
+    --gray: var(--clooney); --black: var(--teflon); --white: var(--snowman); --lightGray: var(--karl);
+    transform: rotate(-3deg);
+  }
+  .sheet .handle { width: 90px; height: 6px; background: var(--karl); margin: 0 auto 28px; }
+  .sheet .opt { display: flex; align-items: center; gap: 28px; padding: 14px; border-radius: 24px; }
+  .sheet .opt + .opt { margin-top: 10px; }
+  .sheet .opt .badge { width: 92px; height: 92px; }
+  .sheet .opt .h { font-size: 32px; font-weight: 600; color: var(--teflon); }
+  .sheet .opt .n { font-size: 25px; font-weight: 500; color: var(--clooney); margin-top: 4px; }
+  .sheet .opt.on { background: color-mix(in srgb, var(--accent) 9%, transparent); }
+  .tap {
+    position: absolute; left: 50px; top: 52px;
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(85,77,86,0.18); border: 3px solid rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 14px rgba(85,77,86,0.07);
+  }
+
+  .chip {
+    position: absolute; right: 70px; top: 1190px;
+    display: flex; align-items: center; gap: 16px;
+    background: var(--teflon); color: var(--snowman);
+    padding: 18px 30px 18px 18px; border-radius: 50px;
+    font-size: 27px; font-weight: 500;
+    box-shadow: 0 20px 50px rgba(60,0,10,0.3);
+  }
+  .chip .dot { width: 54px; height: 54px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+
+  .bottom { position: absolute; left: 90px; right: 90px; bottom: 110px; }
+  .bottom .headline { margin-top: 44px; }
+  .bottom .subline { margin-top: 26px; }
+</style>
+</head>
+<body>
+  <svg class="road" width="1080" height="1920" viewBox="0 0 1080 1920">
+    <path d="M -80 1500 C 260 1300, 220 900, 520 760 S 980 380, 1180 120" fill="none"
+          stroke="rgba(0,0,0,0.08)" stroke-width="250" stroke-linecap="round"/>
+    <path d="M -80 1500 C 260 1300, 220 900, 520 760 S 980 380, 1180 120" fill="none"
+          stroke="rgba(255,255,255,0.55)" stroke-width="10" stroke-dasharray="46 40"/>
+  </svg>
+
+  <div class="phone">
+    <div class="camera"></div>
+    <div class="screen">
+      <div data-status="7:42"></div>
+      <div class="live">
+        <div class="pulse"></div>
+        <div class="bar">
+          <i data-ic="arrow_back" data-s="26"></i>
+          <span class="t-header">Live Session</span>
+          <span style="width:46px"></span>
+        </div>
+        <div class="clock">
+          <div class="time">47m 12s</div>
+          <div class="t-normal" style="font-size:18px">Active</div>
+        </div>
+        <div class="controls">
+          <div class="buttons">
+            <div class="badge outline"><i data-ic="clear" data-s="29"></i></div>
+            <div class="badge big"><i data-ic="pause" data-s="35"></i></div>
+            <div class="badge outline"><i data-ic="undo" data-s="29"></i></div>
+          </div>
+          <div class="complete"><i data-ic="add" data-s="20"></i>Complete drive!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <div class="handle"></div>
+    <div class="opt on" style="position:relative">
+      <div class="badge"><i data-ic="play" data-s="50"></i></div>
+      <div><div class="h">Live Drive</div><div class="n">Actively Track Driving</div></div>
+    </div>
+    <div class="opt">
+      <div class="badge"><i data-ic="history" data-s="46"></i></div>
+      <div><div class="h">Past Drive</div><div class="n">Log Previous Drives</div></div>
+    </div>
+    <div class="opt">
+      <div class="badge"><i data-ic="present" data-s="44"></i></div>
+      <div><div class="h">Preset Drive</div><div class="n">Select Driving Templates</div></div>
+    </div>
+  </div>
+
+  <div class="chip"><span class="dot"><i data-ic="night" data-s="30"></i></span>Night drive detected automatically</div>
+
+  <div class="bottom">
+    <div class="brand"><span class="logo"></span><span class="name">Milestone</span></div>
+    <div class="headline">Hit start.<br><b>Just drive.</b></div>
+    <div class="subline">Live sessions time your drive and log it the moment you’re done. No math, no paper.</div>
+  </div>
+
+  <script src="common.js"></script>
+</body>
+</html>

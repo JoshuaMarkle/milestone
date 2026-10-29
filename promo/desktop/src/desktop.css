@@ -1,0 +1,48 @@
+/* Landscape (1920x1080) overrides on top of ../../src/common.css.
+   Every desktop page uses the blue accent only. */
+
+:root { --accent: var(--blue); }
+
+html, body {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+}
+
+.brand { gap: 24px; }
+.brand .logo { width: 96px; height: 96px; border-radius: 24px; }
+.brand .name { font-size: 88px; }
+.headline { font-size: 72px; }
+.subline { font-size: 30px; }
+
+/* text column, vertically centered */
+.copy {
+  position: absolute;
+  top: 50%;
+  width: 700px;
+  transform: translateY(-50%);
+}
+.copy.left { left: 140px; }
+.copy.right { right: 120px; }
+.copy .headline { margin-top: 52px; }
+.copy .subline { margin-top: 26px; }
+
+/* feature tags under the subline */
+.tags { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+.tags span {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 22px 12px 14px;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.16);
+  font-size: 23px; font-weight: 500;
+}
+
+/* light floating card shared by callouts */
+.float {
+  position: absolute;
+  background: var(--snowman);
+  color: var(--teflon);
+  border-radius: 30px;
+  box-shadow: 0 24px 60px rgba(0,30,80,0.30);
+  --gray: var(--clooney); --black: var(--teflon); --white: var(--snowman); --lightGray: var(--karl);
+}

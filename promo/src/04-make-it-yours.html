@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+  :root { --accent: var(--yellow); }
+  body {
+    background:
+      radial-gradient(circle at 80% 42%, rgba(255,179,71,0.28) 0, rgba(255,179,71,0) 560px),
+      radial-gradient(circle at 10% 95%, rgba(255,179,71,0.12) 0, rgba(255,179,71,0) 520px),
+      var(--midnight);
+    color: var(--gainsboro);
+    position: relative;
+  }
+  .top { position: absolute; left: 90px; right: 90px; top: 96px; }
+  .top .brand .name { color: var(--snowman); }
+  .top .headline { margin-top: 50px; color: var(--snowman); }
+  .top .headline b { color: var(--accent); }
+  .top .subline { margin-top: 26px; color: var(--smoke); opacity: 1; }
+
+  .phone { left: 60px; top: 640px; transform: rotate(-4deg) scale(1.2); transform-origin: 0 0; box-shadow: 0 40px 90px rgba(0,0,0,0.6), inset 0 0 0 2px #333; }
+
+  .settings { position: absolute; inset: 34px 0 0 0; }
+  .settings .bar { display: flex; justify-content: space-between; align-items: center; padding: 23px 20px 8px; color: var(--gray); }
+  .settings .list { padding: 0 23px; }
+  .settings .h { margin-top: 23px; }
+  .settings .row { display: flex; justify-content: space-between; align-items: center; height: 48px; }
+  .swatches { display: flex; gap: 12px; margin-top: 10px; height: 46px; }
+  .swatches span { flex: 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--snowman); }
+  .settings .goalsbtn {
+    margin-top: 14px; height: 52px; border-radius: 14px;
+    background: var(--lightGray);
+    display: flex; align-items: center; padding: 0 16px; gap: 12px;
+  }
+  .settings .goalsbtn svg { color: var(--accent); }
+
+  /* accent fan: the dashboard header in each of the app's accent colors */
+  .fan { position: absolute; left: 560px; top: 660px; width: 450px; height: 720px; }
+  .mini {
+    position: absolute; left: 0; width: 450px; height: 250px;
+    border-radius: 0 0 28px 28px;
+    padding: 24px 28px;
+    color: var(--snowman);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+    display: flex; flex-direction: column;
+  }
+  .mini .icons { display: flex; justify-content: space-between; }
+  .mini .l { margin-top: 26px; text-align: center; font-size: 23px; font-weight: 600; }
+  .mini .v { text-align: center; font-size: 37px; font-weight: 400; }
+  .mini .sel {
+    position: absolute; right: -18px; bottom: -18px;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: var(--snowman); color: var(--midnight);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  }
+
+  /* goal picker card (mirrors set_goals_screen.dart, dark theme) */
+  .goals {
+    position: absolute; left: 450px; top: 1400px; width: 580px;
+    background: var(--nero); border-radius: 30px;
+    padding: 30px 30px 26px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+    transform: rotate(2deg);
+  }
+  .goals .title { font-size: 32px; font-weight: 600; color: var(--gainsboro); text-align: center; margin-bottom: 20px; }
+  .goals .pickers { display: flex; justify-content: space-around; }
+  .picker { text-align: center; }
+  .picker .lab { font-size: 25px; font-weight: 500; color: var(--gainsboro); margin-bottom: 12px; }
+  .picker .wheel { display: flex; align-items: center; gap: 14px; color: var(--storm); font-size: 22px; }
+  .picker .box {
+    width: 110px; height: 110px; border-radius: 20px;
+    border: 2px solid var(--charcoal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; color: var(--accent);
+  }
+  .picker .pm { display: flex; justify-content: center; gap: 40px; margin-top: 10px; color: var(--smoke); }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand"><span class="logo"></span><span class="name">Milestone</span></div>
+    <div class="headline">Make it <b>yours.</b></div>
+    <div class="subline">Pick your color, switch on dark mode, and set the day &amp; night hour goals your permit requires.</div>
+  </div>
+
+  <div class="phone dark">
+    <div class="camera"></div>
+    <div class="screen">
+      <div data-status="9:41"></div>
+      <div class="settings">
+        <div class="bar">
+          <i data-ic="arrow_back" data-s="26"></i>
+          <span class="t-header">Settings</span>
+          <i data-ic="settings" data-s="26"></i>
+        </div>
+        <div class="list">
+          <div class="t-header h">Notifications</div>
+          <div class="row"><span class="t-normal">Notifications</span><span class="switch on"></span></div>
+          <div class="t-header h">Theme</div>
+          <div class="row"><span class="t-normal">Dark Mode</span><span class="switch on"></span></div>
+          <div class="t-normal" style="margin-top:8px">Primary Color</div>
+          <div class="swatches">
+            <span style="background:var(--red)"></span>
+            <span style="background:var(--yellow)"><i data-ic="check" data-s="22"></i></span>
+            <span style="background:var(--blue)"></span>
+            <span style="background:var(--purple)"></span>
+          </div>
+          <div class="t-header h">Extra</div>
+          <div class="goalsbtn"><i data-ic="flag" data-s="24"></i><span class="t-normal">Configure Goals</span></div>
+        </div>
+      </div>
+      <div data-navbar></div>
+    </div>
+  </div>
+
+  <div class="fan">
+    <div class="mini" style="background:var(--purple); top:0; transform: rotate(8deg) translate(14px, 30px);">
+      <div class="icons"><i data-ic="menu" data-s="28"></i><i data-ic="settings" data-s="28"></i></div>
+    </div>
+    <div class="mini" style="background:var(--blue); top:90px; transform: rotate(5deg) translate(8px, 14px);">
+      <div class="icons"><i data-ic="menu" data-s="28"></i><i data-ic="settings" data-s="28"></i></div>
+    </div>
+    <div class="mini" style="background:var(--red); top:180px; transform: rotate(2deg) translate(2px, 2px);">
+      <div class="icons"><i data-ic="menu" data-s="28"></i><i data-ic="settings" data-s="28"></i></div>
+    </div>
+    <div class="mini" style="background:var(--yellow); top:300px; transform: rotate(-3deg);">
+      <div class="icons"><i data-ic="menu" data-s="28"></i><i data-ic="settings" data-s="28"></i></div>
+      <div class="l">Total Drive Time</div>
+      <div class="v">32 Hours 55 Minutes</div>
+      <div class="sel"><i data-ic="check" data-s="34"></i></div>
+    </div>
+  </div>
+
+  <div class="goals">
+    <div class="title">Setting Goals</div>
+    <div class="pickers">
+      <div class="picker">
+        <div class="lab">Day Hours</div>
+        <div class="wheel"><span>45</span><div class="box">50</div><span>55</span></div>
+      </div>
+      <div class="picker">
+        <div class="lab">Night Hours</div>
+        <div class="wheel"><span>5</span><div class="box">10</div><span>15</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+</body>
+</html>
